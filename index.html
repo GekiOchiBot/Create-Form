@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>StudyCommands-Java</title>
+    <style>
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <p onclick="goBack()" class="backButton">Home</p>
+        <h1>StudyCommands</h1>
+        <div class="Fbox" align="center">
+            <h2>コマンド解説作成フォーム</h2><br>
+        </div>
+    </header>
+
+    <form action="https://api.staticforms.xyz/submit" method="post">
+    <section class="content">
+        <article class="box">
+        <input type="hidden" name="accessKey" value="f486ad8e-4f24-4c4b-b8c6-f52f83d42d7e"> <!-- Required -->
+        <textarea required placeholder="解説するコマンド名を入力してください" class="Question" name="$Title" oninput="autoResize(this)"></textarea><br>
+            <textarea required placeholder="解説を追加してください" class="Question" name="$Description" oninput="autoResize(this)">⓪</textarea><br>
+            <textarea required placeholder="問題を追加してください" class="Question" name="$Quiz" oninput="autoResize(this)">⓪</textarea>
+            改行3つで解説番号を次へ進めます。<br>
+            <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
+            <input type="hidden" name="redirectTo" value="https://gekiochibot.github.io/Form-Completed-Thanks/">
+            <input type="submit" class="submitButton" value="送信"></input>
+            
+        </article>
+    </section>
+    </form>
+    <script src="numbers.js"></script>
+    <script>
+        currentNumber = 0
+
+        function goBack() {
+            // 戻るボタンの処理
+            const homeURL =  "https://gekiochibot.github.io/StudyCommands/"
+            window.location.href = homeURL;
+        }
+
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+            textarea.value = (currentNumber <= 9) ? textarea.value.replace(/(\n\n\n)/g, "\n\n" + numbers[0][currentNumber]) : textarea.value;
+            currentNumber = (textarea.value.match(/\n\n/g) || []).length;
+        }
+    </script>
+</body>
