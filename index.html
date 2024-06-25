@@ -24,14 +24,17 @@
     <form action="https://api.staticforms.xyz/submit" method="post">
     <section class="content">
         <article class="box">
-        <input type="hidden" name="accessKey" value="f486ad8e-4f24-4c4b-b8c6-f52f83d42d7e"> <!-- Required -->
+            <h3>ここで作成してもらった原案は、このサイトの作者(おちぼ)のもとへ送信されます。<br>適当に送信されると非常に迷惑なので、いたずら送信はお控えください。<br>また、作成者は解説してもらったコマンドのサイト内に表彰されます(いやな人は備考欄に書いてもらうか、名前の欄を飛ばしてください)。</h3><br>
+            <input type="hidden" name="accessKey" value="f486ad8e-4f24-4c4b-b8c6-f52f83d42d7e"> <!-- Required -->
+        <textarea placeholder="あなたのネット上での活動名を入力してください(本名は×)" class="Question" name="$CreatorName" oninput="autoResize(this)"></textarea><br>
         <textarea required placeholder="解説するコマンド名を入力してください" class="Question" name="$Title" oninput="autoResize(this)"></textarea><br>
-            <textarea required placeholder="解説を追加してください" class="Question" name="$Description" oninput="autoResize(this)">⓪</textarea><br>
-            <textarea required placeholder="問題を追加してください" class="Question" name="$Quiz" oninput="autoResize(this)">⓪</textarea>
+            説明:<textarea required placeholder="解説を追加してください" class="Question" name="$Description" oninput="autoResize(this)">⓪</textarea><br>
+            問題:<textarea required placeholder="問題を追加してください" class="Question" name="$Quiz" oninput="autoResize(this)">⓪</textarea>
             改行3つで解説番号を次へ進めます。<br>
             <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
             <input type="hidden" name="redirectTo" value="https://gekiochibot.github.io/Form-Completed-Thanks/">
-            <input type="submit" class="submitButton" value="送信"></input>
+        <textarea required placeholder="備考" class="Question" name="$Remarks" oninput="autoResize(this)"></textarea><br>
+        <input type="submit" class="submitButton" value="送信"></input>
             
         </article>
     </section>
